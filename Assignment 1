@@ -1,0 +1,25 @@
+# LIF20BSCS0539
+# Task 1
+
+import matplotlib as plt
+from matplotlib import pyplot
+import pandas as pd
+import numpy as np
+d = pd.read_csv('jsrt_metadata.csv')
+d['diagnosis'].value_counts()
+pyplot.title('Total no of paitents of each disease')
+pyplot.xlabel('no of people')
+pyplot.ylabel('diseases')
+type(d['diagnosis'])
+plt.pyplot.hist(d['diagnosis'].value_counts())
+ 
+
+
+# Task 2
+lbl = ['non-nodule',"malignant","benign"]
+plt.pyplot.pie(d["state"].value_counts(),explode=[0.1,0.1,0.1],shadow=True,labels= lbl,autopct='%1.1f%%',startangle=-90)
+plt.pyplot.pie(d["diagnosis"].value_counts())
+
+# Task 3
+plt.pyplot.pie(d["gender"].value_counts(),explode=[0.1,0.1],shadow=True,labels= ["female","male"],autopct='%1.1f%%',startangle=-90)
+plt.pyplot.pie(d["diagnosis"].value_counts())
