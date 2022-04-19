@@ -1,11 +1,24 @@
 # LIF20BSCS0539
-# Task 1
 
+# Setting all the null or non-noudle values
 import matplotlib as plt
 from matplotlib import pyplot
 import pandas as pd
 import numpy as np
 d = pd.read_csv('jsrt_metadata.csv')
+
+d.replace("non-nodule", np.nan, inplace=True)
+mx = d["state"].value_counts().idxmax()
+d["state"].replace(np.nan,mx,inplace=True)
+mx = d["diagnosis"].value_counts().idxmax()
+d["diagnosis"].replace(np.nan,mx,inplace=True)
+mx = d["gender"].value_counts().idxmax()
+d["gender"].replace(np.nan,mx,inplace=True)
+
+
+# Task 1
+
+
 d['diagnosis'].value_counts()
 pyplot.title('Total no of paitents of each disease')
 pyplot.xlabel('no of people')
@@ -15,9 +28,12 @@ plt.pyplot.hist(d['diagnosis'].value_counts())
  
 
 
+
+
+
 # Task 2
-lbl = ['non-nodule',"malignant","benign"]
-plt.pyplot.pie(d["state"].value_counts(),explode=[0.1,0.1,0.1],shadow=True,labels= lbl,autopct='%1.1f%%',startangle=-90)
+lbl = ["malignant","benign"]
+plt.pyplot.pie(d["state"].value_counts(),explode=[0.1,0.1],shadow=True,labels= lbl,autopct='%1.1f%%',startangle=-90)
 plt.pyplot.pie(d["diagnosis"].value_counts())
 
 # Task 3
