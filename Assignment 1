@@ -24,7 +24,7 @@ pyplot.title('Total no of paitents of each disease')
 pyplot.xlabel('no of people')
 pyplot.ylabel('diseases')
 type(d['diagnosis'])
-plt.pyplot.hist(d['diagnosis'].value_counts())
+plt.pyplot.hist(d['diagnosis'])
  
 
 
